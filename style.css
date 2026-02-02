@@ -28,14 +28,6 @@ body {
     border-bottom: 3px solid #d4c4a8;
 }
 
-.header-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
 
 .header h1 {
     font-size: 2.5em;
@@ -71,128 +63,6 @@ body {
     color: #5a4a3a;
 }
 
-.login-section {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.login-section input {
-    padding: 10px 15px;
-    font-size: 1em;
-    border: 2px solid #d4c4a8;
-    border-radius: 8px;
-    background: #faf8f3;
-    color: #5a4a3a;
-    width: 150px;
-}
-
-.login-section input:focus {
-    outline: none;
-    border-color: #8b7355;
-}
-
-.login-btn {
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: bold;
-    background: #8b7355;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.login-btn:hover {
-    background: #6b5a45;
-    transform: scale(1.05);
-}
-
-.logged-in-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #e8dcc6;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px solid #d4c4a8;
-}
-
-.username-display {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #8b7355;
-}
-
-.leaderboard-section {
-    margin-top: 40px;
-    padding: 20px;
-    background: #e8dcc6;
-    border-radius: 15px;
-    border: 2px solid #d4c4a8;
-}
-
-.leaderboard-section h2 {
-    text-align: center;
-    color: #8b7355;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
-.leaderboard {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.leaderboard-entry {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 15px;
-    background: #faf8f3;
-    border-radius: 10px;
-    border: 2px solid #d4c4a8;
-    transition: all 0.3s;
-}
-
-.leaderboard-entry:hover {
-    transform: translateX(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.leaderboard-entry.current-user {
-    background: #fff3cd;
-    border-color: #ffd700;
-    font-weight: bold;
-}
-
-.leaderboard-entry .rank {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #8b7355;
-    min-width: 30px;
-}
-
-.leaderboard-entry .username {
-    flex: 1;
-    font-size: 1.1em;
-    color: #5a4a3a;
-}
-
-.leaderboard-entry .score {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #8b7355;
-}
-
-.no-entries {
-    text-align: center;
-    color: #5a4a3a;
-    font-style: italic;
-    padding: 20px;
-}
 
 .game-area {
     display: flex;
@@ -416,11 +286,26 @@ body {
     min-width: 300px;
 }
 
+
 .bet-section {
     background: #e8dcc6;
     padding: 20px;
     border-radius: 15px;
     border: 2px solid #d4c4a8;
+}
+
+#minigameSection[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+}
+
+#minigameSection:not([style*="display: block"]) {
+    display: none !important;
 }
 
 .bet-section h2 {

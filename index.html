@@ -10,19 +10,10 @@
     <div class="container">
         <div class="header">
             <h1>🎰 Roulette Spill</h1>
-            <div class="header-top">
-                <div class="balance-container">
-                    <span class="balance-label">Saldo:</span>
-                    <span class="balance" id="balance">1000</span>
-                    <span class="currency">kr</span>
-                </div>
-                <div class="login-section" id="loginSection">
-                    <input type="text" id="usernameInput" placeholder="Brukernavn" maxlength="20">
-                    <button class="login-btn" id="loginBtn">Logg inn</button>
-                </div>
-                <div class="logged-in-section" id="loggedInSection" style="display: none;">
-                    <span class="username-display" id="usernameDisplay"></span>
-                </div>
+            <div class="balance-container">
+                <span class="balance-label">Saldo:</span>
+                <span class="balance" id="balance">1000</span>
+                <span class="currency">kr</span>
             </div>
         </div>
 
@@ -80,7 +71,7 @@
                     <button class="spin-btn" id="spinBtn">SPINN</button>
                 </div>
 
-                <div class="selected-bet" id="selectedBet"></div>
+                <div class="selected-bet" id="selectedBet" style="display: none;"></div>
                 
                 <div class="bet-section" id="minigameSection" style="display: none;">
                     <h2>Minigame</h2>
@@ -91,13 +82,6 @@
         </div>
 
         <div class="result-message" id="resultMessage"></div>
-        
-        <div class="leaderboard-section">
-            <h2>🏆 Leaderboard</h2>
-            <div class="leaderboard" id="leaderboard">
-                <!-- Leaderboard will be populated by JavaScript -->
-            </div>
-        </div>
     </div>
 
     <!-- Admin Panel -->

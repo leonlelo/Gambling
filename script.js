@@ -6,9 +6,6 @@ let betAmount = 0;
 let isSpinning = false;
 let isAdminLoggedIn = false;
 
-// User login state
-let currentUsername = localStorage.getItem('currentUsername') || null;
-let alltimeHighScore = 0;
 
 // Function to save balance to localStorage
 function saveBalance() {
@@ -40,19 +37,11 @@ const minigameSection = document.getElementById('minigameSection');
 const minefield = document.getElementById('minefield');
 const minigameStatus = document.getElementById('minigameStatus');
 const restartMinigameBtn = document.getElementById('restartMinigameBtn');
-const loginSection = document.getElementById('loginSection');
-const loggedInSection = document.getElementById('loggedInSection');
-const usernameInput = document.getElementById('usernameInput');
-const loginBtn = document.getElementById('loginBtn');
-const usernameDisplay = document.getElementById('usernameDisplay');
-const leaderboard = document.getElementById('leaderboard');
 
 // Initialize
 updateBalance();
 checkBalance();
 updateMinigameButton();
-initLogin();
-updateLeaderboard();
 
 // Color selection
 betRedBtn.addEventListener('click', () => {
@@ -100,10 +89,9 @@ function updateSelectedBet() {
         selectedBetEl.textContent = `Valgt: ${colorText}`;
         selectedBetEl.style.background = selectedColor === 'red' ? '#c41e3a' : '#1a1a1a';
         selectedBetEl.style.color = 'white';
+        selectedBetEl.style.display = 'flex';
     } else {
-        selectedBetEl.textContent = 'Ingen farge valgt';
-        selectedBetEl.style.background = '#faf8f3';
-        selectedBetEl.style.color = '#5a4a3a';
+        selectedBetEl.style.display = 'none';
     }
 }
 
@@ -213,9 +201,7 @@ function endSpin(finalAngle) {
     selectedColor = null;
     betRedBtn.classList.remove('selected');
     betBlackBtn.classList.remove('selected');
-    selectedBetEl.textContent = 'Ingen farge valgt';
-    selectedBetEl.style.background = '#faf8f3';
-    selectedBetEl.style.color = '#5a4a3a';
+    selectedBetEl.style.display = 'none';
     
     // Re-enable buttons
     betRedBtn.disabled = false;
@@ -235,7 +221,6 @@ function updateBalance() {
     balanceEl.textContent = balance.toLocaleString('no-NO');
     saveBalance(); // Save to localStorage whenever balance is updated
     updateMinigameButton(); // Update minigame button visibility
-    updateHighScore(); // Update high score if logged in
 }
 
 // Check balance and update minigame button visibility
@@ -249,9 +234,19 @@ function updateMinigameButton() {
     if (minigameBtn && minigameSection) {
         if (balance < 1000) {
             minigameSection.style.display = 'block';
+            minigameSection.style.visibility = 'visible';
+            minigameSection.style.height = 'auto';
+            minigameSection.style.margin = '';
+            minigameSection.style.padding = '';
             minigameBtn.disabled = false;
         } else {
             minigameSection.style.display = 'none';
+            minigameSection.style.visibility = 'hidden';
+            minigameSection.style.height = '0';
+            minigameSection.style.margin = '0';
+            minigameSection.style.padding = '0';
+            minigameSection.style.border = 'none';
+            minigameSection.style.overflow = 'hidden';
         }
     }
 }
@@ -546,102 +541,5 @@ if (restartMinigameBtn) {
     });
 }
 
-// Login functionality
-function initLogin() {
-    if (currentUsername) {
-        // Already logged in
-        if (loginSection) loginSection.style.display = 'none';
-        if (loggedInSection) loggedInSection.style.display = 'block';
-        if (usernameDisplay) usernameDisplay.textContent = currentUsername;
-        loadHighScore();
-    } else {
-        // Not logged in
-        if (loginSection) loginSection.style.display = 'flex';
-        if (loggedInSection) loggedInSection.style.display = 'none';
-    }
-    
-    if (loginBtn) {
-        loginBtn.addEventListener('click', handleLogin);
-    }
-    
-    if (usernameInput) {
-        usernameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleLogin();
-            }
-        });
-    }
-}
-
-function handleLogin() {
-    const username = usernameInput.value.trim();
-    if (!username) {
-        alert('Skriv inn et brukernavn!');
-        return;
-    }
-    
-    if (username.length > 20) {
-        alert('Brukernavn kan maks være 20 tegn!');
-        return;
-    }
-    
-    currentUsername = username;
-    localStorage.setItem('currentUsername', username);
-    
-    if (loginSection) loginSection.style.display = 'none';
-    if (loggedInSection) loggedInSection.style.display = 'block';
-    if (usernameDisplay) usernameDisplay.textContent = username;
-    if (usernameInput) usernameInput.value = '';
-    
-    loadHighScore();
-    updateLeaderboard();
-}
-
-function loadHighScore() {
-    if (!currentUsername) return;
-    
-    const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData') || '{}');
-    alltimeHighScore = leaderboardData[currentUsername] || 0;
-}
-
-function updateHighScore() {
-    if (!currentUsername) return;
-    
-    if (balance > alltimeHighScore) {
-        alltimeHighScore = balance;
-        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData') || '{}');
-        leaderboardData[currentUsername] = alltimeHighScore;
-        localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
-        updateLeaderboard();
-    }
-}
-
-function updateLeaderboard() {
-    if (!leaderboard) return;
-    
-    const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData') || '{}');
-    
-    // Convert to array and sort by score (descending)
-    const entries = Object.entries(leaderboardData)
-        .map(([username, score]) => ({ username, score }))
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 10); // Top 10
-    
-    if (entries.length === 0) {
-        leaderboard.innerHTML = '<p class="no-entries">Ingen poeng enda. Logg inn og spill for å komme på leaderboard!</p>';
-        return;
-    }
-    
-    leaderboard.innerHTML = entries.map((entry, index) => {
-        const isCurrentUser = entry.username === currentUsername;
-        return `
-            <div class="leaderboard-entry ${isCurrentUser ? 'current-user' : ''}">
-                <span class="rank">${index + 1}.</span>
-                <span class="username">${entry.username}</span>
-                <span class="score">${entry.score.toLocaleString('no-NO')} kr</span>
-            </div>
-        `;
-    }).join('');
-}
 
 
