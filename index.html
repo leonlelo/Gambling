@@ -1,3 +1,96 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Spill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎰 Roulette Spill</h1>
+            <div class="balance-container">
+                <span class="balance-label">Saldo:</span>
+                <span class="balance" id="balance">100</span>
+                <span class="currency">kr</span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="roulette-container">
+                <div class="roulette-wheel" id="rouletteWheel">
+                    <div class="wheel-inner" id="wheelInner">
+                        <div class="sector red" data-color="red">RØD</div>
+                        <div class="sector black" data-color="black">SVART</div>
+                    </div>
+                    <div class="ball" id="ball"></div>
+                </div>
+            </div>
+
+            <div class="betting-area">
+                <div class="bet-section">
+                    <h2>Velg farge</h2>
+                    <div class="color-buttons">
+                        <button class="bet-btn red-btn" id="betRed">RØD</button>
+                        <button class="bet-btn black-btn" id="betBlack">SVART</button>
+                    </div>
+                </div>
+
+                <div class="bet-section">
+                    <h2>Innskudd</h2>
+                    <input type="number" id="betAmount" min="1" placeholder="Beløp" value="100">
+                    <button class="spin-btn" id="spinBtn">SPINN</button>
+                </div>
+
+                <div class="selected-bet" id="selectedBet"></div>
+            </div>
+        </div>
+
+        <div class="result-message" id="resultMessage"></div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-corner">
+        <button class="admin-toggle" id="adminToggle">⚙️</button>
+        <div class="admin-panel" id="adminPanel">
+            <h3>Admin Login</h3>
+            <input type="text" id="adminUsername" placeholder="Brukernavn">
+            <input type="password" id="adminPassword" placeholder="Passord">
+            <button class="admin-btn" id="adminLoginBtn">Logg inn</button>
+            <div class="admin-controls" id="adminControls" style="display: none;">
+                <h4>Admin Kontroll</h4>
+                <input type="number" id="adminMoney" placeholder="Nytt beløp" min="0">
+                <button class="admin-btn" id="setMoneyBtn">Sett saldo</button>
+                <button class="admin-btn" id="adminLogoutBtn">Logg ut</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minigame Modal -->
+    <div class="minigame-modal" id="minigameModal">
+        <div class="minigame-content">
+            <h2>Du har gått tom for penger!</h2>
+            <p>Spill dette minispillet for å få 1000 kr</p>
+            <div class="minigame-area">
+                <div class="click-game">
+                    <p>Klikk på knappen så mange ganger du kan på 5 sekunder!</p>
+                    <button class="click-btn" id="clickBtn">KLIKK MEG!</button>
+                    <div class="minigame-stats">
+                        <p>Klikk: <span id="clickCount">0</span></p>
+                        <p>Tid igjen: <span id="timeLeft">5</span>s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+=======
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -90,3 +183,4 @@
 </html>
 
 
+>>>>>>> 5f63aed799a19ec8f7cd8574cc6e76b952caaf23
