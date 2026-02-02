@@ -1,5 +1,5 @@
 // Game state
-let balance = 1000;
+let balance = 100;
 let selectedColor = null;
 let betAmount = 0;
 let isSpinning = false;
