@@ -10,10 +10,19 @@
     <div class="container">
         <div class="header">
             <h1>🎰 Roulette Spill</h1>
-            <div class="balance-container">
-                <span class="balance-label">Saldo:</span>
-                <span class="balance" id="balance">100</span>
-                <span class="currency">kr</span>
+            <div class="header-top">
+                <div class="balance-container">
+                    <span class="balance-label">Saldo:</span>
+                    <span class="balance" id="balance">1000</span>
+                    <span class="currency">kr</span>
+                </div>
+                <div class="login-section" id="loginSection">
+                    <input type="text" id="usernameInput" placeholder="Brukernavn" maxlength="20">
+                    <button class="login-btn" id="loginBtn">Logg inn</button>
+                </div>
+                <div class="logged-in-section" id="loggedInSection" style="display: none;">
+                    <span class="username-display" id="usernameDisplay"></span>
+                </div>
             </div>
         </div>
 
@@ -21,8 +30,36 @@
             <div class="roulette-container">
                 <div class="roulette-wheel" id="rouletteWheel">
                     <div class="wheel-inner" id="wheelInner">
-                        <div class="sector red" data-color="red">RØD</div>
-                        <div class="sector black" data-color="black">SVART</div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
+                        <div class="sector red" data-color="red"></div>
+                        <div class="sector black" data-color="black"></div>
                     </div>
                     <div class="ball" id="ball"></div>
                 </div>
@@ -44,10 +81,23 @@
                 </div>
 
                 <div class="selected-bet" id="selectedBet"></div>
+                
+                <div class="bet-section" id="minigameSection" style="display: none;">
+                    <h2>Minigame</h2>
+                    <button class="minigame-btn" id="minigameBtn">💣 Bombmine</button>
+                    <p class="minigame-info">Få 500 kr (maks opp til 1000 kr)</p>
+                </div>
             </div>
         </div>
 
         <div class="result-message" id="resultMessage"></div>
+        
+        <div class="leaderboard-section">
+            <h2>🏆 Leaderboard</h2>
+            <div class="leaderboard" id="leaderboard">
+                <!-- Leaderboard will be populated by JavaScript -->
+            </div>
+        </div>
     </div>
 
     <!-- Admin Panel -->
@@ -69,18 +119,15 @@
 
     <!-- Minigame Modal -->
     <div class="minigame-modal" id="minigameModal">
-        <div class="minigame-content">
-            <h2>Du har gått tom for penger!</h2>
-            <p>Spill dette minispillet for å få 1000 kr</p>
+        <div class="minigame-content" id="minigameContent">
+            <h2>💣 Minesweeper</h2>
+            <p>Åpne alle rutene uten å treffe en mine. Høyreklikk for å flagge.</p>
             <div class="minigame-area">
-                <div class="click-game">
-                    <p>Klikk på knappen så mange ganger du kan på 5 sekunder!</p>
-                    <button class="click-btn" id="clickBtn">KLIKK MEG!</button>
-                    <div class="minigame-stats">
-                        <p>Klikk: <span id="clickCount">0</span></p>
-                        <p>Tid igjen: <span id="timeLeft">5</span>s</p>
-                    </div>
+                <div class="minefield" id="minefield">
+                    <!-- Grid will be generated by JavaScript -->
                 </div>
+                <div class="minigame-status" id="minigameStatus"></div>
+                <button class="restart-btn" id="restartMinigameBtn" style="display: none;">Prøv igjen</button>
             </div>
         </div>
     </div>

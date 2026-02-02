@@ -28,6 +28,15 @@ body {
     border-bottom: 3px solid #d4c4a8;
 }
 
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
 .header h1 {
     font-size: 2.5em;
     color: #8b7355;
@@ -62,6 +71,129 @@ body {
     color: #5a4a3a;
 }
 
+.login-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-section input {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: 2px solid #d4c4a8;
+    border-radius: 8px;
+    background: #faf8f3;
+    color: #5a4a3a;
+    width: 150px;
+}
+
+.login-section input:focus {
+    outline: none;
+    border-color: #8b7355;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #8b7355;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background: #6b5a45;
+    transform: scale(1.05);
+}
+
+.logged-in-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #e8dcc6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #d4c4a8;
+}
+
+.username-display {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #8b7355;
+}
+
+.leaderboard-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: #e8dcc6;
+    border-radius: 15px;
+    border: 2px solid #d4c4a8;
+}
+
+.leaderboard-section h2 {
+    text-align: center;
+    color: #8b7355;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leaderboard-entry {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: #faf8f3;
+    border-radius: 10px;
+    border: 2px solid #d4c4a8;
+    transition: all 0.3s;
+}
+
+.leaderboard-entry:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-entry.current-user {
+    background: #fff3cd;
+    border-color: #ffd700;
+    font-weight: bold;
+}
+
+.leaderboard-entry .rank {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8b7355;
+    min-width: 30px;
+}
+
+.leaderboard-entry .username {
+    flex: 1;
+    font-size: 1.1em;
+    color: #5a4a3a;
+}
+
+.leaderboard-entry .score {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #8b7355;
+}
+
+.no-entries {
+    text-align: center;
+    color: #5a4a3a;
+    font-style: italic;
+    padding: 20px;
+}
+
 .game-area {
     display: flex;
     gap: 40px;
@@ -92,31 +224,162 @@ body {
     height: 100%;
     position: relative;
     border-radius: 50%;
+    background: conic-gradient(
+        #c41e3a 0deg 12deg,
+        #ffffff 12deg 12.2deg,
+        #1a1a1a 12.2deg 24deg,
+        #ffffff 24deg 24.2deg,
+        #c41e3a 24.2deg 36deg,
+        #ffffff 36deg 36.2deg,
+        #1a1a1a 36.2deg 48deg,
+        #ffffff 48deg 48.2deg,
+        #c41e3a 48.2deg 60deg,
+        #ffffff 60deg 60.2deg,
+        #1a1a1a 60.2deg 72deg,
+        #ffffff 72deg 72.2deg,
+        #c41e3a 72.2deg 84deg,
+        #ffffff 84deg 84.2deg,
+        #1a1a1a 84.2deg 96deg,
+        #ffffff 96deg 96.2deg,
+        #c41e3a 96.2deg 108deg,
+        #ffffff 108deg 108.2deg,
+        #1a1a1a 108.2deg 120deg,
+        #ffffff 120deg 120.2deg,
+        #c41e3a 120.2deg 132deg,
+        #ffffff 132deg 132.2deg,
+        #1a1a1a 132.2deg 144deg,
+        #ffffff 144deg 144.2deg,
+        #c41e3a 144.2deg 156deg,
+        #ffffff 156deg 156.2deg,
+        #1a1a1a 156.2deg 168deg,
+        #ffffff 168deg 168.2deg,
+        #c41e3a 168.2deg 180deg,
+        #ffffff 180deg 180.2deg,
+        #1a1a1a 180.2deg 192deg,
+        #ffffff 192deg 192.2deg,
+        #c41e3a 192.2deg 204deg,
+        #ffffff 204deg 204.2deg,
+        #1a1a1a 204.2deg 216deg,
+        #ffffff 216deg 216.2deg,
+        #c41e3a 216.2deg 228deg,
+        #ffffff 228deg 228.2deg,
+        #1a1a1a 228.2deg 240deg,
+        #ffffff 240deg 240.2deg,
+        #c41e3a 240.2deg 252deg,
+        #ffffff 252deg 252.2deg,
+        #1a1a1a 252.2deg 264deg,
+        #ffffff 264deg 264.2deg,
+        #c41e3a 264.2deg 276deg,
+        #ffffff 276deg 276.2deg,
+        #1a1a1a 276.2deg 288deg,
+        #ffffff 288deg 288.2deg,
+        #c41e3a 288.2deg 300deg,
+        #ffffff 300deg 300.2deg,
+        #1a1a1a 300.2deg 312deg,
+        #ffffff 312deg 312.2deg,
+        #c41e3a 312.2deg 324deg,
+        #ffffff 324deg 324.2deg,
+        #1a1a1a 324.2deg 336deg,
+        #ffffff 336deg 336.2deg,
+        #c41e3a 336.2deg 348deg,
+        #ffffff 348deg 348.2deg,
+        #1a1a1a 348.2deg 360deg
+    );
 }
 
 .sector {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 2em;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.sector.red {
-    background: #c41e3a;
+    top: 0;
     left: 0;
-    border-radius: 50% 0 0 50%;
+    transform-origin: center center;
+    overflow: visible;
+    pointer-events: none;
 }
 
-.sector.black {
-    background: #1a1a1a;
-    right: 0;
-    border-radius: 0 50% 50% 0;
+
+.sector::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform-origin: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+/* Rotate text for each sector to follow the curve */
+.sector:nth-child(1)::after { transform: translateX(-50%) rotate(6deg); }
+.sector:nth-child(2)::after { transform: translateX(-50%) rotate(18deg); }
+.sector:nth-child(3)::after { transform: translateX(-50%) rotate(30deg); }
+.sector:nth-child(4)::after { transform: translateX(-50%) rotate(42deg); }
+.sector:nth-child(5)::after { transform: translateX(-50%) rotate(54deg); }
+.sector:nth-child(6)::after { transform: translateX(-50%) rotate(66deg); }
+.sector:nth-child(7)::after { transform: translateX(-50%) rotate(78deg); }
+.sector:nth-child(8)::after { transform: translateX(-50%) rotate(90deg); }
+.sector:nth-child(9)::after { transform: translateX(-50%) rotate(102deg); }
+.sector:nth-child(10)::after { transform: translateX(-50%) rotate(114deg); }
+.sector:nth-child(11)::after { transform: translateX(-50%) rotate(126deg); }
+.sector:nth-child(12)::after { transform: translateX(-50%) rotate(138deg); }
+.sector:nth-child(13)::after { transform: translateX(-50%) rotate(150deg); }
+.sector:nth-child(14)::after { transform: translateX(-50%) rotate(162deg); }
+.sector:nth-child(15)::after { transform: translateX(-50%) rotate(174deg); }
+.sector:nth-child(16)::after { transform: translateX(-50%) rotate(186deg); }
+.sector:nth-child(17)::after { transform: translateX(-50%) rotate(198deg); }
+.sector:nth-child(18)::after { transform: translateX(-50%) rotate(210deg); }
+.sector:nth-child(19)::after { transform: translateX(-50%) rotate(222deg); }
+.sector:nth-child(20)::after { transform: translateX(-50%) rotate(234deg); }
+.sector:nth-child(21)::after { transform: translateX(-50%) rotate(246deg); }
+.sector:nth-child(22)::after { transform: translateX(-50%) rotate(258deg); }
+.sector:nth-child(23)::after { transform: translateX(-50%) rotate(270deg); }
+.sector:nth-child(24)::after { transform: translateX(-50%) rotate(282deg); }
+.sector:nth-child(25)::after { transform: translateX(-50%) rotate(294deg); }
+.sector:nth-child(26)::after { transform: translateX(-50%) rotate(306deg); }
+.sector:nth-child(27)::after { transform: translateX(-50%) rotate(318deg); }
+.sector:nth-child(28)::after { transform: translateX(-50%) rotate(330deg); }
+.sector:nth-child(29)::after { transform: translateX(-50%) rotate(342deg); }
+.sector:nth-child(30)::after { transform: translateX(-50%) rotate(354deg); }
+
+
+/* Position 30 sectors in a circle (12 degrees each) - alternating red/black */
+/* Each sector covers 12 degrees, so we need to calculate the clip-path for a 12-degree slice */
+.sector:nth-child(1) { transform: rotate(0deg); }
+.sector:nth-child(2) { transform: rotate(12deg); }
+.sector:nth-child(3) { transform: rotate(24deg); }
+.sector:nth-child(4) { transform: rotate(36deg); }
+.sector:nth-child(5) { transform: rotate(48deg); }
+.sector:nth-child(6) { transform: rotate(60deg); }
+.sector:nth-child(7) { transform: rotate(72deg); }
+.sector:nth-child(8) { transform: rotate(84deg); }
+.sector:nth-child(9) { transform: rotate(96deg); }
+.sector:nth-child(10) { transform: rotate(108deg); }
+.sector:nth-child(11) { transform: rotate(120deg); }
+.sector:nth-child(12) { transform: rotate(132deg); }
+.sector:nth-child(13) { transform: rotate(144deg); }
+.sector:nth-child(14) { transform: rotate(156deg); }
+.sector:nth-child(15) { transform: rotate(168deg); }
+.sector:nth-child(16) { transform: rotate(180deg); }
+.sector:nth-child(17) { transform: rotate(192deg); }
+.sector:nth-child(18) { transform: rotate(204deg); }
+.sector:nth-child(19) { transform: rotate(216deg); }
+.sector:nth-child(20) { transform: rotate(228deg); }
+.sector:nth-child(21) { transform: rotate(240deg); }
+.sector:nth-child(22) { transform: rotate(252deg); }
+.sector:nth-child(23) { transform: rotate(264deg); }
+.sector:nth-child(24) { transform: rotate(276deg); }
+.sector:nth-child(25) { transform: rotate(288deg); }
+.sector:nth-child(26) { transform: rotate(300deg); }
+.sector:nth-child(27) { transform: rotate(312deg); }
+.sector:nth-child(28) { transform: rotate(324deg); }
+.sector:nth-child(29) { transform: rotate(336deg); }
+.sector:nth-child(30) { transform: rotate(348deg); }
+
+/* Create 12-degree pie slice for each sector */
+.sector::before {
+    clip-path: polygon(50% 50%, 50% 0%, 52.1% 0%, 52.1% 100%, 50% 100%);
 }
 
 .ball {
@@ -141,17 +404,8 @@ body {
     0% {
         transform: translate(-50%, -50%) rotate(0deg) translateX(170px) rotate(0deg);
     }
-    25% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(170px) rotate(-360deg);
-    }
-    50% {
-        transform: translate(-50%, -50%) rotate(720deg) translateX(170px) rotate(-720deg);
-    }
-    75% {
-        transform: translate(-50%, -50%) rotate(1080deg) translateX(170px) rotate(-1080deg);
-    }
     100% {
-        transform: translate(-50%, -50%) rotate(1440deg) translateX(170px) rotate(-1440deg);
+        transform: translate(-50%, -50%) rotate(1080deg) translateX(170px) rotate(-1080deg);
     }
 }
 
@@ -441,19 +695,128 @@ input[type="number"]:focus {
     cursor: not-allowed;
 }
 
-.minigame-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+.minigame-btn {
+    width: 100%;
     padding: 15px;
-    background: #e8dcc6;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: #8b7355;
+    color: white;
+    border: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
 }
 
-.minigame-stats p {
+.minigame-btn:hover:not(:disabled) {
+    background: #6b5a45;
+    transform: scale(1.05);
+}
+
+.minigame-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.minigame-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #5a4a3a;
+}
+
+.minefield {
+    display: grid;
+    gap: 2px;
+    margin: 20px auto;
+    max-width: 320px;
+    background: #8b7355;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.mine-cell {
+    aspect-ratio: 1;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    background: #e8dcc6;
+    color: #5a4a3a;
+    cursor: pointer;
+    transition: all 0.1s;
+    min-width: 28px;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine-cell:hover:not(:disabled):not(.revealed):not(.flagged) {
+    background: #d4c4a8;
+}
+
+.mine-cell:disabled {
+    cursor: not-allowed;
+}
+
+.mine-cell.revealed {
+    background: #faf8f3;
+    cursor: default;
+}
+
+.mine-cell.flagged {
+    background: #fff3cd;
+}
+
+.mine-cell.bomb {
+    background: #f8d7da;
+    color: #721c24;
+    animation: shake 0.5s;
+}
+
+.mine-cell.number-1 { color: #0000ff; }
+.mine-cell.number-2 { color: #008000; }
+.mine-cell.number-3 { color: #ff0000; }
+.mine-cell.number-4 { color: #000080; }
+.mine-cell.number-5 { color: #800000; }
+.mine-cell.number-6 { color: #008080; }
+.mine-cell.number-7 { color: #000000; }
+.mine-cell.number-8 { color: #808080; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.minigame-status {
+    text-align: center;
+    margin: 20px 0;
     font-size: 1.2em;
     font-weight: bold;
     color: #5a4a3a;
+    min-height: 30px;
+}
+
+.restart-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #8b7355;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+}
+
+.restart-btn:hover {
+    background: #6b5a45;
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
